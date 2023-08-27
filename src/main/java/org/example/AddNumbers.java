@@ -3,6 +3,7 @@ package org.example;
 public class AddNumbers {
 
     public int add(int a, int b){
+        System.out.println("Inside ADD method");
         return a-b;
     }
     public static void main(String[] args) {
