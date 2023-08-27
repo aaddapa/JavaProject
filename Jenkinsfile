@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('Build and Test') {
             steps {
-                // Compile the main code
-                sh 'javac src/AddNumbers.java'
+                // 
+                sh 'javac src/main/java/org/example/AddNumbers.java'
                 // Compile the test code
-                sh 'javac -cp .:junit-platform-console-standalone-1.8.0-M1.jar src/AddNumbersTest.java'
+                sh 'javac -cp .:junit-platform-console-standalone-1.8.0-M1.jar src/test/java/AddNumbersTest.java'
                 // Run the JUnit tests
                 sh 'java -jar junit-platform-console-standalone-1.8.0-M1.jar --class-path . --scan-classpath --disable-ansi-colors'
             }
