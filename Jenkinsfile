@@ -5,11 +5,11 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Compile the main code
-                sh 'javac src/main/java/org/example/AddNumbers.java'
+                sh 'javac  src/main/java/org/example/AddNumbers.java'
                 // Compile the test code
-                sh 'javac -cp .:junit-jupiter-api-5.9.2.jar:junit-4.13.2.jar src/test/java/AddNumbersTest.java'
+                sh 'javac -cp .:~/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:~/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar src/test/java/AddNumbersTest.java'
                 // Run the JUnit tests
-                sh 'java -cp .:junit-jupiter-api-5.9.2.jar:junit-4.13.2.jar:junit-platform-console-standalone-1.8.0-M1.jar org.junit.platform.console.ConsoleLauncher --classpath . --scan-classpath --disable-ansi-colors'
+                sh 'java -cp .:~/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:~/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar:~/.m2/repository/org/junit/platform/junit-platform-console-standalone/1.8.0-M1/junit-platform-console-standalone-1.8.0-M1.jar org.junit.platform.console.ConsoleLauncher --classpath .:~/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:~/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar --scan-classpath --disable-ansi-colors'
             }
         }
     }
